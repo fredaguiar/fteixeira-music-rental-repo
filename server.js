@@ -11,6 +11,11 @@ app.use(express.static(__dirname + '/public'))
 var db = mongojs('EquipmentDB');
 db.createCollection("equipment", { size : 6142800} );
 var equipments = db.collection('equipment');
+
+equipments.remove({key:"sound"}, function (err, docs) {
+    console.log("truncate equipments" );
+});
+
 equipments.insert({key: 'sound', equipment: 'Eletric Guitar', model: 'Fender', price: '20'});
 equipments.insert({key: 'sound', equipment: 'Bass Guitar', model: 'Ibanez', price: '30'});
 equipments.insert({key: 'sound', equipment: 'Guitar Amp', model: 'Fender', price: '40'});
@@ -18,7 +23,7 @@ equipments.insert({key: 'sound', equipment: 'Guitar Amp', model: 'Fender', price
 app.get('/equipmentlist', function(req, res) {
 
 	equipments.find(function (err, docs) {
-    	console.log("Find equipmentlist: " );
+    	console.log("Find equipments" );
     	res.json(docs);
 	})
 });

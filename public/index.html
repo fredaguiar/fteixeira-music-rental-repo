@@ -34,28 +34,44 @@
 				</div>
 			</div>				
 			<div class="row">
-				<div class="col-md-6">				
+				<div class="col-md-8">				
 					<table class="table">
 						<thead>
 							<th>Payment</th>
 							<th></th>
 							<th></th>
+							<th></th>
 						</thead>
 						<tbody>
 							<tr>
-								<td>CC #</td>
-								<td><input ng-model="cc"></td>
+								<td>Amount</td>
+								<td>$<input ng-model="price"></td>
 								<td></td>
+								<td></td>
+							</tr>							
+							<tr>
+								<td>First Name</td>
+								<td><input ng-model="firstName"></td>
+								<td>Last Name</td>
+								<td><input ng-model="lastName"></td>								
 							</tr>
 							<tr>
-								<td>Price</td>
-								<td><input ng-model="price"></td>
-								<td></td>
+								<td>Cardholder Address</td>
+								<td><input ng-model="cardholderAddress"></td>
+								<td>Card Expiry</td>
+								<td><input ng-model="cardExpiry"></td>								
 							</tr>						
-								<td><button class="btn btn-primary" ng-click="submitEquipments()">Submit</button></td>
-								<td></td>
-								<td></td>
+								<td>Card Number</td>
+								<td><input ng-model="cardNumber"></td>
+								<td>Security Code</td>
+								<td><input ng-model="securityCode"></td>								
 							</tr>
+							</tr>						
+								<td><button class="btn btn-primary" ng-click="submitEquipments()">Make Payment</button></td>
+								<td></td>
+								<td></td>
+								<td></td>								
+							</tr>							
 						</tbody>
 					</table>
 				</div>
@@ -73,7 +89,7 @@
 								<th>{{paymenttotalvalue}}</th>
 							</tr>
 							<tr>
-								<th><button class="btn btn-primary" ng-click="anotherPayment()">Make another Payment</button></th>
+								<th><button class="btn btn-primary" ng-click="restart()">Restart</button></th>
 								<th></th>
 							</tr>							
 						</tbody>
