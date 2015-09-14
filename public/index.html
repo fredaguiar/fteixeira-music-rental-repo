@@ -1,0 +1,93 @@
+<!DOCTYPE>
+<html ng-app="myApp">
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+	<title>Musical instruments rentals</title>
+</head>
+
+<body>
+	
+	<form name="myForm" ng-controller="AppCtrl">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6">
+					<h3>Equipment rental</h3>
+
+					<table class="table">
+						<thead>
+							<th>Equipment</th>
+							<th>Model</th>
+							<th>Price</th>
+							<th></th>
+						</thead>
+						<tbody>
+							<tr ng-repeat="equipment in equipmentList">
+								<td>{{equipment.equipment}}</td>
+								<td>{{equipment.model}}</td>
+								<td>{{equipment.price}}</td>
+								<td><input type="radio" value="{{equipment.price}}" name="rb"
+									ng-click="toggleSelection(equipment.price)"></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>				
+			<div class="row">
+				<div class="col-md-6">				
+					<table class="table">
+						<thead>
+							<th>Payment</th>
+							<th></th>
+							<th></th>
+						</thead>
+						<tbody>
+							<tr>
+								<td>CC #</td>
+								<td><input ng-model="cc"></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Price</td>
+								<td><input ng-model="price"></td>
+								<td></td>
+							</tr>						
+								<td><button class="btn btn-primary" ng-click="submitEquipments()">Submit</button></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>					
+			<div class="row">
+				<div class="col-md-6">	
+					<table class="table">
+						<thead>
+							<th>{{paymentdetails}}</th>
+							<th></th>
+						</thead>
+						<tbody>
+							<tr>
+								<th>{{paymenttotal}}</th>
+								<th>{{paymenttotalvalue}}</th>
+							</tr>
+							<tr>
+								<th><button class="btn btn-primary" ng-click="anotherPayment()">Make another Payment</button></th>
+								<th></th>
+							</tr>							
+						</tbody>
+					</table>				
+				</div>				
+			</div>
+		</div>
+	
+	</form>
+
+	<div class="modal-footer">
+    	<button class="btn btn-primary" ng-click="ok()">Ok</button>
+	</div>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+</body>
