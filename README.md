@@ -1,7 +1,7 @@
 
 Project Description: Select and rent a musical instrument.
 
-Source code can be found on github: https://github.com/fredaguiar/RentMusicRepo.git
+Source code can be found on github: https://github.com/fredaguiar/fteixeira-music-rental-repo.git
 
 Technologies applied to the web application:
 * NodeJS
@@ -16,12 +16,12 @@ Download and install NodeJS and MongoDB
 
 Download the project from github 
 * clone the application from github or request by email (fred.aguiar.teixeira@hotmail.com)
-* git clone https://github.com/fredaguiar/RentMusicRepo.git
+* git clone https://github.com/fredaguiar/fteixeira-music-rental-repo.git
 
 Run the application
 * in the command line, go to the mongodb /bin directory 
 * start the mongodb server "/bin/mongod"
-* in the command line, go to the root directory of the web application /RentMusicRepo
-* initialize the nodejs server "/RentMusicRepo/node server.js"
+* in the command line, go to the root directory of the web application /fteixeira-music-rental-repo
+* initialize the nodejs server "/fteixeira-music-rental-repo/node server.js"
 * the console should display "Listening on port 3000..."
 * open a browser and load the application http://localhost:3000/
