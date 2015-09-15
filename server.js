@@ -1,8 +1,8 @@
 
 var express = require('express');
 var mongojs = require('mongojs');
-var https = require('https');
-var request = require("request");
+var url = require('url') ;
+var request = require('request');
 
 // Create the application.
 var app = express();
@@ -74,15 +74,29 @@ app.get('/settings', function(req, res) {
 
 app.post('/makepayment', function(req, res) {
 
+  	var qs = require('querystring');
+  	var data = '';
+  	var postData;
+  	req.on('data', function(chunk) {
+  		data += chunk;
+  	});
+  	req.on('end', function() {
+  		postData = qs.parse(data);
+  	});
+
 	settings.find(function (err, docs) {
 
 		console.log("Make Payment");
 		if(err) {
 			console.dir("Make Paymentas failed! Error: " + err); 
-			return;
+			res.send(500);
 		}
 
     	var data = docs[0];
+
+    	console.log('-----card_number:' + postData.card_number);
+    	console.log('-----token:' + postData.token);
+    	console.log('-----last_name:' + postData.last_name);
 
     	request({
     		uri: 'https://ecom.payfirma.com/sale/?key=' + data.apiKey + '&merchant_id=' + data.merchantId + '&test_mode=true',
